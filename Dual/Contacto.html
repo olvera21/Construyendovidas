@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <link rel="stylesheet" href="CSS/estilo.css">
+
+  
+  <title>Contacto</title>
+</head>
+    <header>
+          <div class="header__superior">
+          <div class="logo">
+            <img src="descarga.png" alt="">
+          </div> 
+          <div class="search">
+            <input type="search" placeholder="¿Que deseas buscar?">
+          </div>
+        </div>
+
+        <div class="container__menu">
+          <div class="menu">
+            <nav>
+              <ul>
+                <li><a href="Menu principal.html" id="selected"></a></li>
+                <li><a href="#">¿Quienes somos?</a>
+                    <ul>
+                      <li><a href="Historia.html">Historia</a></li>
+                      <li><a href="Mision y vision.html">Mision y vision</a></li>
+                      <li><a href="Valores.html">Valores</a></li>
+                      <li><a href="Linea del tiempo.html">Linea del tiempo</a></li>
+                      <li><a href="Colaboradores.html">Colaboradores</a></li>
+                      <li><a href="Aliados.html">Aliados</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Modelo de Atencion</a>
+                <ul>
+                  <li><a href="Descripcion de actividades.html">Descripcion de Atividades</a></li>
+                </ul>
+                </li>
+                <li><a href="#">Resultados</a>
+                <ul>
+                  <li><a href="Historia.html">Historias de exito</a></li>
+                  <li><a href="Estadisticas.html">Estadisticas</a></li>
+                  <li><a href="Galeria.html">Galeria</a></li>
+                </ul>
+                </li>
+                <li><a href="Contacto.html">Contacto</a></li>
+                <li><a href="Como ayudar.html">¿Como ayudar?</a></li>
+              </ul>
+            </nav>
+          </div>
+          </div>
+      </header>  
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
+    <body background="IMG/aliados.jpg">
+
+      <form class=formulario action="conexion.php" method="POST">
+      <!--Este sera el codigo del titulo-->
+      <h1 class="titulo">NOS IMPORTA TU OPINION</h1>
+        <center><P>Ponte en contacto con nosotros rellenando este formulario</P></center>
+    
+      <!--En esta seccion sera donde el usurario agregue sus datos-->
+      <input class="cajas" name= "name" type="text" placeholder="Nombre" required maxlength="70" id="nombre">
+      <input class="cajas" name= "name2" type="text" placeholder="Apellidos" required maxlength="70" id="apellidos">
+      <input class="cajas" name= "email" type="email" placeholder="Email" required maxlength="40" id="email">
+        <input class="cajas" name= "cel" type="text" placeholder="Telefono" required maxlength="10" id="telefono">
+        <input class="cajas" name= "asu" type="text" placeholder="Asunto" required maxlength="40" id="asunto">
+    <!--Boton de registrarse-->
+      <input type="submit" class="btn" value="REGISTRAR" id="btn-enviar">
+      <!--Ya tengo cuetna:3-->
+      </form>
+        <script type="text/javascript">
+    const btnEnviar = document.getElementById('btn-enviar');
+    
+    function validacion(){
+        var nombrereal=document.getElementById('nombre');
+        var apellidosreal=document.getElementById('apellidos');
+        var direccionEmail = document.getElementById('email');
+        var nombreDeUsuario = document.getElementById('usuario');
+        var telefonousuario=document.getElementById('telefono');
+        var passwordusuario=document.getElementById('password');
+        var comentariosusuario=document.getElementById('comentarios');
+        var asuntouusuario=document.getElementById('asunto');
+        const box = document.getElementById('Termino');
+        
+        if (nombrereal.value === ""){
+            alert("Por favor, escribe tu Nombre");
+            nombrereal.focus();
+            return false;
+        }    
+        if (!validaNombre(nombrereal.value)){
+            alert("Este nombre no es adecuado");
+            nombrereal.focus();
+            return false;
+        }
+        if (apellidosreal.value === ""){
+            alert("Por favor, escribe tus apellidos");
+            apellidosreal.focus();
+            return false;
+        }
+        if (!validaApellidos(apellidosreal.value)){
+            alert("Este apellido no es valido");
+            apellidosreal.focus();
+            return false;
+        }
+        if (direccionEmail.value === ""){
+            alert("Por favor, escribe tu correo electronico");
+            direccionEmail.focus();
+            return false;
+        }
+        if (!emailvalido(direccionEmail.value)) {
+            alert("Por favor,escribe un correo electronico valido");
+            direccionEmail.focus();
+            return false;
+        }
+        if (nombreDeUsuario.value === "") {
+            alert("Por favor, escribe tu nombre de usuario.");
+            nombreDeUsuario.focus();
+            return false;
+        }
+        if (!validausuario(nombreDeUsuario.value)){
+            alert("Este nombrede usuario no es permitido");
+            nombreDeUsuario.focus();
+            return false;
+        }
+        if (telefonousuario.value === ""){
+            alert("Ingresa tu numero de telefono, por favor");
+            telefonousuario.focus();
+            return false;
+        }
+        if (!validaTelefono(telefonousuario.value)){
+            alert("Este campo solo acepta numeros");
+            telefonousuario.focus();
+            return false;
+        }
+        if (passwordusuario.value === ""){
+            alert("Por favor, introduzca una contraseña");
+            passwordusuario.focus();
+            return false;
+        }
+          if (asuntouusuario.value === ""){
+            alert("Por favor, introduzca su asunto en el cuadro de texto");
+            asuntouusuario.focus();
+            return false;
+        }
+         if (comentariosusuario.value === ""){
+            alert("Por favor, introduzca comentarios");
+            comentariosusuario.focus();
+            return false;
+        }
+         if (!box.checked){
+            alert("Por favor acepte los terminos y condiciones de la pagina");
+            return false;  
+        } 
+        window.open("PRODUCTO1_Eduardo.html")
+        return true;
+    }
+    const emailvalido = direccionEmail => {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(direccionEmail);
+    }
+    const validaApellidos = apellidosreal =>{
+        return /^[a-zA-Z áéíóúüÁÉÍÓÜÚ]{4,15}$/.test(apellidosreal);
+    }
+    const validaNombre = nombrereal => {
+        return /^[a-zA-Z áéíóúüÁÉÍÓÜÚ]{3,15}$/.test(nombrereal);
+    }
+    const validausuario = nombreDeUsuario =>{
+        return /^[a-zA-Z0-9_-]{4,15}$/.test(nombreDeUsuario);
+    }
+    const validaTelefono = telefonousuario => {
+        return /^[\+]?[(]?[0-9]{2}[)]?[-\s\.]?[0-9]{4}[-\s\.]?[0-9]{4,4}$/im.test(telefonousuario);
+    }
+    btnEnviar.addEventListener('click',validacion);
+    </script>
+    </html>
+    
+    
+    
+    
+
+</body>
+</html>
